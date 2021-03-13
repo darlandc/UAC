@@ -26,25 +26,25 @@ export class ReactiveCharactersComponent implements Widget, OnDestroy {
 
   constructor(private service: CharacteresService) {}
 
-  load() {
+  load(): void {
     this.sinc();
   }
 
-  refresh() {
+  refresh(): void {
     this.sinc();
   }
 
-  sinc() {
+  sinc(): void {
     this.subSink.add(
       this.form.valueChanges.subscribe(v => this.loadCharacter(v))
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subSink.unsubscribe();
   }
 
-  private loadCharacter(id: string) {
+  private loadCharacter(id: string): void {
     this.service.loadCharacter(id);
   }
 }

@@ -6,11 +6,4 @@ import {MatSelectModule} from '@angular/material/select';
   templateUrl: './skyrim.component.html',
   styleUrls: ['./skyrim.component.scss']
 })
-export class SkyrimComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class SkyrimComponent {}

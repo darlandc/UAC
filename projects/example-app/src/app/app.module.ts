@@ -1,12 +1,13 @@
 import { HomeComponent } from './components/home.component';
-import { SkyrimModule } from './../../../skyrim/src/public-api';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SkyrimModule, ProfileAppConfig, EnvService, CoreModule } from './../../../skyrim/src/public-api';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SkyrimModule,
+    SkyrimModule.forChild(environment),
     ReactiveFormsModule,
     HttpClientModule
   ],
@@ -24,4 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    console.log(environment, 'inside application');
+  }
+}
