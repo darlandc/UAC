@@ -11,12 +11,12 @@ export class ManagerService {
 
   constructor(private env: EnvService) {
     console.log(this.env, 'env service config provided by application');
-    this.manageFlags(this.env.activatedFlags);
+    this.manageFlags(this.env.activatedFlags, FLAGS.MFA); // fixed
   }
 
-  manageFlags(activatedFlags): void {
+  manageFlags(activatedFlags, startedFlags): void {
     console.log(activatedFlags);
-    const hasFlag = activatedFlags.includes(FLAGS.MFA);
+    const hasFlag = activatedFlags.includes(startedFlags);
     console.log(hasFlag);
   }
 }
