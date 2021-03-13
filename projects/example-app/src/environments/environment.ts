@@ -2,7 +2,7 @@ export enum FLAGS {
   'DEFAULT',
   'LOGIN',
   'MFA',
-  'SEC-UPDATE'
+  'SECUPDATE'
 }
 
 export const environment = {
@@ -10,6 +10,8 @@ export const environment = {
   host: 'UAT',
   activatedFlags: [
     FLAGS.DEFAULT,
-    FLAGS.LOGIN
+    // FLAGS.LOGIN,
+    FLAGS.MFA,
+    FLAGS.SECUPDATE
   ]
 };

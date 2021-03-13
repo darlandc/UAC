@@ -1,3 +1,6 @@
+import { FLAGS } from './../enums/flag.enum';
+import { EnvService } from './../services/env.service';
+import { ManagerService } from './../services/manager.service';
 import { WIDGET } from './../tokens/widget.token';
 import { Component, OnInit, ContentChild } from '@angular/core';
 import { Widget } from '../interfaces/widget.interface';
@@ -8,21 +11,25 @@ import { Widget } from '../interfaces/widget.interface';
   styleUrls: ['./wrapper.component.scss']
 })
 export class WrapperComponent implements OnInit {
-
   @ContentChild(WIDGET as any, { static: true })
-
   widget: Widget;
   loading: boolean;
+  checkAnyFlag;
 
-  constructor() {}
+  constructor(private manager: ManagerService, private env: EnvService) {}
 
   ngOnInit(): void {
+
+    this.checkAnyFlag = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
+    console.log(this.checkAnyFlag);
+
     if (this.widget) {
       this.widget.load();
     }
   }
 
   refresh(): void {
-   this.widget.refresh();
+    this.widget.refresh();
   }
+
 }
