@@ -4,6 +4,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { CharacteresService } from '../../services/characteres.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-reactive-characters',
