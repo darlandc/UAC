@@ -15,6 +15,10 @@ export class WrapperComponent implements OnInit {
   widget: Widget;
   loading: boolean;
   checkAnyFlag;
+  DEFAULT = false;
+  LOGIN = false;
+  MFA = false;
+  SECUPDATE = false;
 
   constructor(private manager: ManagerService, private env: EnvService) {}
 
@@ -22,6 +26,10 @@ export class WrapperComponent implements OnInit {
 
     this.checkAnyFlag = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
     console.log(this.checkAnyFlag);
+
+    this.DEFAULT = this.manager.checkFlag(this.env.activatedFlags, FLAGS.DEFAULT);
+    this.LOGIN = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
+    this.MFA = this.manager.checkFlag(this.env.activatedFlags, FLAGS.DEFAULT);
 
     if (this.widget) {
       this.widget.load();
