@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'lib-skyrim',
-  template: `
-    <p>
-      skyrim works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './skyrim.component.html',
+  styleUrls: ['./skyrim.component.scss']
 })
 export class SkyrimComponent implements OnInit {
 
