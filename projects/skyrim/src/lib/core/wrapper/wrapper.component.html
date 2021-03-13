@@ -9,21 +9,19 @@
     </ng-template>
   </mat-card>
 
-
+  <!--
   <ng-container *ngIf="checkAnyFlag">
     flag exists here!
-  </ng-container>
+  </ng-container> -->
 
-  <ng-container *ngIf="DEFAULT">
-    DEFAULT HERE!
-  </ng-container>
-
-
-  <ng-container *ngIf="MFA">
-    MFA HERE!
-  </ng-container>
-
-
-  <ng-container *ngIf="LOGIN">
-    LOGIN HERE!
-  </ng-container>
+  <div class="wrapper">
+    <ng-container *ngIf="DEFAULT">
+      DEFAULT WRAPPER
+      <ng-container *ngIf="LOGIN">
+        LOGIN HERE
+        <ng-container *ngIf="MFA">
+          MFA HERE!
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>

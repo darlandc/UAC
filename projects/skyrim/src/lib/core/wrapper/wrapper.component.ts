@@ -19,17 +19,13 @@ export class WrapperComponent implements OnInit {
   LOGIN = false;
   MFA = false;
   SECUPDATE = false;
+  SHIELDING = false;
 
-  constructor(private manager: ManagerService, private env: EnvService) {}
+  constructor(private manager: ManagerService, private env: EnvService) {
+    this.checkFlags();
+  }
 
   ngOnInit(): void {
-
-    this.checkAnyFlag = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
-    console.log(this.checkAnyFlag);
-
-    this.DEFAULT = this.manager.checkFlag(this.env.activatedFlags, FLAGS.DEFAULT);
-    this.LOGIN = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
-    this.MFA = this.manager.checkFlag(this.env.activatedFlags, FLAGS.DEFAULT);
 
     if (this.widget) {
       this.widget.load();
@@ -40,4 +36,14 @@ export class WrapperComponent implements OnInit {
     this.widget.refresh();
   }
 
+  checkFlags(): void {
+    this.DEFAULT = this.manager.checkFlag(this.env.activatedFlags, FLAGS.DEFAULT);
+    !this.DEFAULT
+      ? console.error('YOU MUST ACTIVATE THE DEFAULT FLAG!')
+      : console.log('DEFAULT FLAG IS ON!');
+    this.LOGIN = this.manager.checkFlag(this.env.activatedFlags, FLAGS.LOGIN);
+    this.MFA = this.manager.checkFlag(this.env.activatedFlags, FLAGS.MFA);
+    this.SECUPDATE = this.manager.checkFlag(this.env.activatedFlags, FLAGS.SECUPDATE);
+    this.SHIELDING = this.manager.checkFlag(this.env.activatedFlags, FLAGS.SHIELDING);
+  }
 }
