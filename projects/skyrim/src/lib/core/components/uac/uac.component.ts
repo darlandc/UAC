@@ -1,3 +1,4 @@
+import { ManagerService } from './../../services/manager.service';
 import { EnvService } from './../../services/env.service';
 import { WIDGET } from './../../tokens/widget.token';
 import { Widget } from './../../interfaces/widget.interface';
@@ -19,9 +20,7 @@ export class UserControlAccessComponent implements Widget, OnDestroy {
 
   private subSink = new Subscription();
 
-  constructor(private env: EnvService) {
-    console.log(this.env, 'inside lib');
-  }
+  constructor(private env: EnvService, private manager: ManagerService) {}
 
   load(): void {
     this.sinc();

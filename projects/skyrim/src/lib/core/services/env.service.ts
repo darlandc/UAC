@@ -8,6 +8,6 @@ import { ProfileAppConfig } from '../interfaces/profile-app-config.interface';
 export class EnvService {
 
   host: string;
-
+  activatedFlags: Array<string>;
 
 }

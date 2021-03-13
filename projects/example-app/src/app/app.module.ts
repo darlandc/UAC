@@ -25,8 +25,4 @@ import { environment } from '../environments/environment';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(){
-    console.log(environment, 'inside application');
-  }
-}
+export class AppModule {}
